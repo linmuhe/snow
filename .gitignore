@@ -3,3 +3,5 @@ sync.ffs_db
 .classpath
 .settings/
 target/
+*/test/
+mein/
