@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
+import org.eclipse.jetty.io.Connection;
 import org.eclipse.jetty.io.EndPoint;
 
 import com.xoease.snowstorm.server.Connector;
@@ -25,11 +26,23 @@ public class SnowConnection extends SnowAbstractConnection   {
 	private XmpParser parser;
 	/*private XmpGenetor genetor;
 	 */
+
+	public boolean isHanded = false ;//握手成功
+
+	public boolean isHanded() {
+		return isHanded;
+	}
+
+	public void setHanded(boolean handed) {
+		isHanded = handed;
+	}
+
 	protected SnowConnection(Connector connector, EndPoint endPoint) {
 		super(connector, endPoint);
-		
 	}
-	
+
+
+
 	/* 有一个schedule不断的去调用它 
 	 * @see com.xoease.snowstorm.server.SnowTimeoutConnection#parseTimeout()
 	 */
@@ -66,6 +79,7 @@ public class SnowConnection extends SnowAbstractConnection   {
 	@Override
 	public void onFillable() {
 		
+
 		ArrayList<Object> stream = new ArrayList<Object>();
 		stream.add(_connector);
 		stream.add(this);

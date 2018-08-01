@@ -10,15 +10,15 @@ public class AppConverHandler implements LastHandler {
 
 	@Override
 	public Object parse(Object atta, List<Object> streamObj) {
+		System.out.println("this is app msg handler ");
 		System.out.println(atta);
-		//atta instalce from xmpRequest 
+		//atta instalce from xmpRequest
 		return null;
 	}
 
 	@Override
 	public void onStart(SnowAbstractServer server) {
 		System.out.println("APp start ....");
-
 	}
 
 }

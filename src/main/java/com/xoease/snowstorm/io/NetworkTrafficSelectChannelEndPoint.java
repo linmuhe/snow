@@ -31,7 +31,7 @@ import org.eclipse.jetty.io.SelectChannelEndPoint;
 import org.eclipse.jetty.util.log.Log;
 import org.eclipse.jetty.util.log.Logger;
 import org.eclipse.jetty.util.thread.Scheduler;
-
+@Deprecated
 public class NetworkTrafficSelectChannelEndPoint extends SelectChannelEndPoint
 {
     private static final Logger LOG = Log.getLogger(NetworkTrafficSelectChannelEndPoint.class);

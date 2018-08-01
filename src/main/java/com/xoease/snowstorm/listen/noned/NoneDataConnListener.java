@@ -10,7 +10,7 @@ import com.xoease.snowstorm.server.SnowAbstractConnection;
 import com.xoease.snowstorm.server.SnowAbstractServer;
 
 /**
- * 针对每个新的连接的listener
+ * 针对每个新的连接的listener 把链接添加到集合 然后定时判断
  * @author sks
  *
  */

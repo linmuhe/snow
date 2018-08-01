@@ -9,10 +9,10 @@ import java.util.List;
 import org.eclipse.jetty.io.ByteBufferPool;
 
 import com.xoease.snowstorm.config.Snow;
-import com.xoease.snowstorm.io.BufManaged;
 
 public abstract class DynamicBufParser extends TimeoutParser{
-	//private BufManaged _bufManaged=null;
+	protected static int _MinBuf =128;
+	protected static int _MaxBuf = Snow.BUF_CAPACITY ;
 	private ByteBufferPool _Bufpool=null;
 	
 	public DynamicBufParser(ByteBufferPool bufPool,long timeout) {
@@ -21,8 +21,7 @@ public abstract class DynamicBufParser extends TimeoutParser{
 		//_bufManaged = new BufManaged(bufPool);
 	}
 	protected ByteBuffer getBuf(){
-		return _Bufpool
-				.acquire(128, false);
+		return _Bufpool.acquire(_MinBuf, false);
 	}
 	protected void releaseBuf(){return ;}
 	

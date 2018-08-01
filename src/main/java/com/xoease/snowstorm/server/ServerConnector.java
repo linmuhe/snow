@@ -24,7 +24,10 @@ import org.eclipse.jetty.util.annotation.ManagedAttribute;
 import org.eclipse.jetty.util.annotation.Name;
 import org.eclipse.jetty.util.ssl.SslContextFactory;
 import org.eclipse.jetty.util.thread.Scheduler;
-
+/**
+ * 可以实现 listgener will addto every conneciton
+ * 一个全局大管家
+ */
 public class ServerConnector extends AbstractNetworkConnector
 {
     private final SelectorManager _manager;

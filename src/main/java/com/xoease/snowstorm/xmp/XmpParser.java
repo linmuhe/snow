@@ -129,16 +129,18 @@ public class XmpParser extends DynamicBufParser {
 			}*/
 			byte[] dst = new byte[c];
 			readbuf.get(dst, 0, c);
+			System.out.println("this is xmp parser  ");
+
 			System.out.println(ByteUtils.toHexString(dst));
 				readStart();
 				//开始解析读到的数据  当解析完成后要调用readEnd() 代表协议完整
-				
+				//ByteUtils.toCharArray(dst)
 					
 				//TODO 
 
 					
 					//if protocal is  ok
-				//		readEnd();
+						readEnd();
 						//	indust();
 		
 							return "xxxxxxxxxxxxxxxxxxxxxxxx protocal" ;

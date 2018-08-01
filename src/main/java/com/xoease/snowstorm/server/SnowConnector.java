@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.SocketChannel;
 
+import com.xoease.snowstorm.listen.noned.NoneDataConnListener;
 import org.eclipse.jetty.io.ManagedSelector;
 import org.eclipse.jetty.io.MappedByteBufferPool;
 import org.eclipse.jetty.io.SelectChannelEndPoint;
@@ -30,7 +31,7 @@ public class SnowConnector extends ServerConnector {
 			@Name("selectors") int selectors) {
 		
 		super(server, null, null, new MappedByteBufferPool(), acceptors, selectors,server.createConnectionFactory());
-		
+
 	
 	}
 	@Override

@@ -16,18 +16,18 @@ import com.xoease.snowstorm.config.Snow;
  * @author sks
  * buf管理器
  */
+@Deprecated
 public class BufManaged {
 	private ByteBufferPool _bufPool=null;
 
-	protected static int _minBuf =128;
-	protected static int _maxBuf = Snow.BUF_CAPACITY ; 
+
 	public BufManaged(ByteBufferPool bufPool) {
 		_bufPool = bufPool;
 	}
-	protected int getMinBufSize(){
+/*	protected int getMinBufSize(){
 		return _minBuf;
 	}
 	protected int getMaxBufSize(){
 		return _maxBuf;
-	}
+	}*/
 }

@@ -26,7 +26,9 @@ public class NoneSendMonitor extends SnowTimerTask implements InterNoneSendMonit
 	}
 	@Override
 	public void run() {
+		LOG.info("run task {}",this.getClass());
 				for (SnowAbstractConnection conn : connSets) {
+
 					//在超时的情况下
 					if(conn.timeout()){
 						//如果没有发生数据交换 

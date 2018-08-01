@@ -12,7 +12,7 @@ import org.eclipse.jetty.util.thread.Scheduler;
  * 
  */
 public abstract class SnowTimerTask extends ContainerLifeCycle implements Runnable{
-	private long seconds = 30000; //每隔多少秒检查一次 
+	private long seconds = 30000; //每隔多少MILLISECONDS秒检查一次
 	private  Scheduler _scheduler; 
 	
 	protected Scheduler getScheduler() {

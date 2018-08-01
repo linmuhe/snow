@@ -21,31 +21,11 @@ private  SslParser() {
 }
 	@Override
 	public Object parse(Object atta, List<Object> streamObj) {
-		return super.parse(atta, streamObj);
-	}
-private SSLEngine sslOn(String keystorePath,String pass) throws Exception{
-		
-		KeyStore ks = KeyStore.getInstance("JKS");      // 创建JKS密钥库  
-        ks.load(new FileInputStream(keystorePath), pass.toCharArray());  
+		Object r = super.parse(atta, streamObj);
 
-        // 创建管理JKS密钥库的X.509密钥管理器  
-        KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");  
-        kmf.init(ks, pass.toCharArray());  
-          
-        // 构造SSL环境，指定SSL版本为3.0，也可以使用TLSv1，但是SSLv3更加常用。  
-        SSLContext s = SSLContext.getInstance("SSLv3");  
-          
-          
-        s.init(kmf.getKeyManagers(), null, null); 
-	
-		// 打印这个SSLContext实例使用的协议  
-		//System.out.println("缺省安全套接字使用的协议: " + s.getProtocol());  
-		// 获取SSLContext实例相关的SSLEngine  
-		SSLEngine e = s.createSSLEngine(); 
-		
-		e.setUseClientMode(false);//
-        e.setNeedClientAuth(true);//
-        
-		return e ; 
+		System.out.println("this is app ssl parser  ");
+
+		return r;
 	}
+
 }
