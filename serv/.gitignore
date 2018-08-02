@@ -1,0 +1,8 @@
+sync.ffs_db
+.project
+.classpath
+.settings/
+target/
+*/test/
+mein/
+.idea/
