@@ -18,6 +18,7 @@ public class DefaultLastHandler  extends  NextPparse implements LastHandler{
 	public DefaultLastHandler(SnowServer snowServer,LastHandler last) {
 		setServer(snowServer);
 		_last= last;
+
 	}
 	
 	@Override

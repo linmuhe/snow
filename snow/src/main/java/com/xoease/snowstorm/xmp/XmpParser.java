@@ -13,6 +13,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLEngine;
 
 import org.bouncycastle.pqc.math.linearalgebra.ByteUtils;
+import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.util.Callback;
 import org.eclipse.jetty.util.log.Log;
 import org.eclipse.jetty.util.log.Logger;
@@ -153,7 +154,7 @@ public class XmpParser extends DynamicBufParser {
 	/**
 	 * 业务层
 	 */
-	@Deprecated
+	/*@Deprecated
 	private void indust() {
 		conCtx.getEndPoint().write(new Callback(){
 
@@ -172,7 +173,7 @@ public class XmpParser extends DynamicBufParser {
 			
 			
 		},ByteBuffer.wrap("sd".getBytes()));
-	}
+	}*/
 	
 	/**
 	 * 这个方法由SnowConnection的onfillable来调用

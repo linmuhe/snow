@@ -11,7 +11,6 @@ import com.xoease.snowstorm.server.SnowAbstractServer;
 public abstract class AbstractHandler extends ContainerLifeCycle implements Handler
 {
     private static final Logger LOG = Log.getLogger(AbstractHandler.class);
-
     private SnowAbstractServer _server;
     
     /* ------------------------------------------------------------ */

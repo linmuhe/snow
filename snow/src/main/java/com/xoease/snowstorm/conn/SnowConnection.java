@@ -77,8 +77,7 @@ public class SnowConnection extends SnowAbstractConnection   {
 	}*/
 	@Override
 	public void onFillable() {
-		
-
+		//core pipline
 		ArrayList<Object> stream = new ArrayList<Object>();
 		stream.add(_connector);
 		stream.add(this);

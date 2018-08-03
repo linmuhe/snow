@@ -155,8 +155,7 @@ public abstract class SnowAbstractServer extends  HandlerWrapper implements Attr
        if(( shutmonitor = getShutdownMonitor())!=null){
     	   shutmonitor.start();
        }
-        System.out.println("############## Server start ###############");
-        LOG.info("SnowServ-v" + getVersion());
+         LOG.info("SnowServ-v" + getVersion());
       //  HttpGenerator.setJettyVersion(HttpConfiguration.SERVER_VERSION);
         MultiException mex=new MultiException();
 
@@ -209,7 +208,6 @@ public abstract class SnowAbstractServer extends  HandlerWrapper implements Attr
         mex.ifExceptionThrow();
 
         LOG.info(String.format("Started @%dms",Uptime.getUptime()));
-        System.out.println("############## Server started ###############");
 
     }
 
@@ -541,4 +539,6 @@ public abstract class SnowAbstractServer extends  HandlerWrapper implements Attr
 		ShutdownMonitor monitor = ShutdownMonitor.getInstance();
 		return monitor;
 	}
+
+
 }

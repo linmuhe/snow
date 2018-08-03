@@ -6,6 +6,7 @@ import java.nio.channels.Channel;
 import java.util.List;
 
 import com.xoease.snowstorm.config.Snow;
+import com.xoease.snowstorm.server.handler.Handler;
 import org.eclipse.jetty.util.component.ContainerLifeCycle;
 import org.eclipse.jetty.util.thread.ThreadPool;
 
@@ -68,12 +69,19 @@ public class SnowServer extends SnowAbstractServer {
 		addNoneSendCal();
 		//把协议解析后的对想给它  启动和解析后 都会调用第二个参数  
 		//如果Hander有beans类就调用子类
-		DefaultLastHandler h = new DefaultLastHandler(this,new AppConverHandler());
-	
+		Handler h =  instaceHandler();
+
 		setHandler(h);
 		super.doStart();
 	}
 
+	/**
+	 * 由于jetty 用于构建嵌入式web 所以这个handler不通用with jetty handler
+	 * @return
+	 */
+	protected  Handler instaceHandler(){
+		return  new DefaultLastHandler(this,new AppConverHandler());
+	}
 	private void addNoneSendCal() {
 		if(getConnectors().length > 0){
 			if(isNoneSendDataIdle()){
