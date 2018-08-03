@@ -1,6 +1,4 @@
 package com.xoeae.dnd;
-
-import com.xoease.snowstorm.conn.SnowServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

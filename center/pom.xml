@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.xoeae.center</groupId>
+  <groupId>com.xoease.center</groupId>
   <artifactId>center</artifactId>
   <version>0.0.1</version>
   <dependencies>
@@ -12,17 +12,14 @@
 	 <scope>compile</scope>
   </dependency>
 
+
 	  <dependency>
-		  <groupId>com.xoease.snowstorm</groupId>
-		  <artifactId>snowstorm</artifactId>
+		  <groupId>com.xoease.centerinterface</groupId>
+		  <artifactId>centerinterface</artifactId>
 		  <version>0.0.1</version>
-		  <scope>compile</scope>
 	  </dependency>
-	  <dependency>
-		  <groupId>org.apache.thrift</groupId>
-		  <artifactId>libthrift</artifactId>
-		  <version>0.10.0</version>
-	  </dependency>
+
+
   </dependencies>
   <build>
     <pluginManagement>
@@ -34,9 +31,12 @@
 				    <configuration>
 				        <source>1.8</source>
 				        <target>1.8</target>
-				            <encoding>utf-8</encoding> 
-				    </configuration>
-    		</plugin> 
+				            <encoding>utf-8</encoding>
+						<skip>true</skip>
+
+					</configuration>
+
+			 </plugin>
     	</plugins>
     </pluginManagement>
   </build>
