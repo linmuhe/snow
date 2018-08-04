@@ -29,7 +29,15 @@ public class ServiceApi {
     	this.version = version;
 	}
 
-	public static ServiceApi create(String name){
+    public String getName() {
+        return name;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public static ServiceApi create(String name){
         return new ServiceApi(name);
     }
     public static ServiceApi create(String name, String version){

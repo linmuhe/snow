@@ -11,6 +11,10 @@ import org.apache.thrift.transport.TTransportException;
 
 import java.net.InetSocketAddress;
 
+/**
+ * @see  spring-boot
+ */
+@Deprecated
 public abstract class Server  {
     public Server(int  port) throws TTransportException {
         this(new InetSocketAddress(port));
@@ -23,8 +27,8 @@ public abstract class Server  {
         serverParams.processor(processor());
         ser=new TThreadedSelectorServer(serverParams);
     }
-    abstract TProcessor processor();
-    abstract TProtocolFactory protocolFactory();
+    public abstract TProcessor processor();
+    public abstract TProtocolFactory protocolFactory();
     public void start(){
         ser.serve();
     }

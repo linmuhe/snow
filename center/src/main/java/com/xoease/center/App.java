@@ -1,11 +1,19 @@
 package com.xoease.center;
 
-
 import org.apache.thrift.TProcessor;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocolFactory;
+
 import org.eclipse.jetty.util.log.Log;
-import org.eclipse.jetty.util.log.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
+
+import java.net.UnknownHostException;
 
 /**
  *  中心服务器 被serv调用 存放一些中心全局数据
@@ -14,12 +22,33 @@ import org.eclipse.jetty.util.log.Logger;
  //https://thrift.apache.org/tutorial/java
  http://thrift.apache.org/tutorial/
   */
-public class App {
-    private static final Logger logger = Log.getLogger(App.class);
 
-    public  static void main(String[] args) throws Exception {
+@SpringBootApplication
+@Configuration
+@ComponentScan(value = {"com.albedo.java.thrift.rpc","com.xoease.center"})
+public class App {
+   protected static final org.eclipse.jetty.util.log.Logger log = Log.getLogger(App.class);
+
+    @Autowired
+    private Environment env;
+
+    /**
+     * Main method, used to run the application.
+     *
+     * @param args the command line arguments
+     * @throws UnknownHostException if the local host name could not be resolved into an address
+     */
+    public static void main(String[] args) throws Exception {
+
+       /* SpringApplication app = new SpringApplication(App.class);
+        final ApplicationContext applicationContext = app.run(args);*/
+        final ApplicationContext applicationContext=  SpringApplication.run(App.class,args);
+        Environment env = applicationContext.getEnvironment();
+        log.info("Application '{}' is running! ",
+                env.getProperty("spring.application.name"));
 
     }
+    @Deprecated
     private static void runThriftServToIm(int port) throws Exception {
     /*    Server ser = new Server();
         TServlet ts = new TServlet();
@@ -31,7 +60,7 @@ public class App {
         Server s = new Server(8888) {
 
             @Override
-            TProcessor processor() {
+            public TProcessor processor() {
                 return null ;
 /*
                 TMultiplexedProcessor processor = new TMultiplexedProcessor();
@@ -46,12 +75,13 @@ public class App {
             }
 
             @Override
-            TProtocolFactory protocolFactory() {
+            public TProtocolFactory protocolFactory() {
                 return new TBinaryProtocol.Factory();
             }
         };
         s.start();
     }
+    @Deprecated
     private static void runThriftServToHttpapi() throws Exception {
     /*    Server ser = new Server();
         TServlet ts = new TServlet();
