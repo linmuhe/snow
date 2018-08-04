@@ -1,11 +1,7 @@
 package com.xoease.center;
 
-import com.albedo.java.thrift.rpc.common.config.AlbedoRpcProperties;
-import com.albedo.java.thrift.rpc.common.zookeeper.ZookeeperFactory;
 import com.albedo.java.thrift.rpc.server.map.ServiceMap;
-import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.framework.CuratorFrameworkFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.xoease.centerinterface.SecService;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
 
@@ -28,11 +24,9 @@ public class Conf {
      * @return
      */
     @Bean
-    public ServiceMap serviceMap(){
+    public ServiceMap serviceMap(SecService.Iface secService){
         ServiceMap serviceMap=new ServiceMap();
-
-
-         //   serviceMap.addService(EchoSerivce.Iface.class.getName(),echoSerivce);
+        serviceMap.addService(SecService.Iface.class.getName(),secService);
 
         return serviceMap;
     }

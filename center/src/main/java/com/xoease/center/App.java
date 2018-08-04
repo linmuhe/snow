@@ -44,8 +44,7 @@ public class App {
         final ApplicationContext applicationContext = app.run(args);*/
         final ApplicationContext applicationContext=  SpringApplication.run(App.class,args);
         Environment env = applicationContext.getEnvironment();
-        log.info("Application '{}' is running! ",
-                env.getProperty("spring.application.name"));
+        log.info("Application '{}' is running! ",  env.getProperty("spring.application.name"));
 
     }
     @Deprecated

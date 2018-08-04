@@ -1,17 +1,14 @@
-package com.xoeae.dnd;
+package com.xoease.dnd;
 
 import com.albedo.java.thrift.rpc.client.proxy.ServiceStarter;
 import com.albedo.java.thrift.rpc.common.vo.ServiceApi;
+import com.xoease.centerinterface.SecService;
 import com.xoease.snowstorm.config.Snow;
 import com.xoease.snowstorm.conn.SnowServer;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-import javax.annotation.PostConstruct;
 
 @SpringBootConfiguration
 public class Conf implements InitializingBean {
@@ -44,19 +41,20 @@ public class Conf implements InitializingBean {
      * 创建thriftClient
      * @return
      */
-   /*@Bean
+   @Bean
     public ServiceStarter serviceMap(){
        ServiceStarter st = new ServiceStarter();
-       *//*    .startService(EchoSerivce.Iface.class, ServiceApi.create("echoSerivce"));*//*
+         st.startService(SecService.Iface.class,ServiceApi.create("secService"));
        return  st ;
-    }*/
+    }
     /**
      * 启动IM服务
      */
-    @Bean(initMethod = "start")
+    @Bean(initMethod = "start",destroyMethod = "stop")
     public SnowServer start() throws Exception {
         SnowServer ser = new SnowServer(){
         };
+
         ser.setNoneSendDataIdle(true);
         return ser;
        // ser.start();

@@ -9,6 +9,7 @@ import com.xoease.snowstorm.listen.noned.NoneDataConnListener;
 import org.eclipse.jetty.io.ManagedSelector;
 import org.eclipse.jetty.io.MappedByteBufferPool;
 import org.eclipse.jetty.io.SelectChannelEndPoint;
+import org.eclipse.jetty.util.StringUtil;
 import org.eclipse.jetty.util.annotation.Name;
 
 import com.xoease.snowstorm.io.SnowSelectChannelEndPoint;
@@ -42,7 +43,7 @@ public class SnowConnector extends ServerConnector {
     }
 	public SnowConnector(@Name("server") SnowAbstractServer server) {
 		this(server, -1, -1);
-		if(!Snow.host.isEmpty()){
+		if(StringUtil.isNotBlank(Snow.host)){
 			this.setHost(Snow.host);
 		}
 	}
